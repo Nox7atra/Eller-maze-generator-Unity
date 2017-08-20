@@ -11,7 +11,6 @@ namespace Nox7atra.Mazes.Generators
             {
                 CreateRow(eulerMaze, i);
                 CreateVerticalConnections(eulerMaze, i);
-                VerticalShareSets(eulerMaze, i);
             }
             CreateLastRow(eulerMaze);
             return eulerMaze;
@@ -80,17 +79,6 @@ namespace Nox7atra.Mazes.Generators
                 if (isAddedVertical ? Random.Range(0, 2) > 0 : true)
                 {
                     RemoveVerticalWall(lastCell, topCell);
-                }
-            }
-        }
-        private void VerticalShareSets(W4Maze maze, int rowNum)
-        {
-            for(int i = 0; i < maze.ColumnCount; i++)
-            {
-                if(!maze.GetCell(i, rowNum).TopWall)
-                {
-                    maze.GetCell(i, rowNum + 1).Set
-                        = maze.GetCell(i, rowNum).Set;
                 }
             }
         }
