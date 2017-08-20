@@ -38,7 +38,6 @@ namespace Nox7atra.Mazes
         public void RefreshMaze()
         {
             //Preprocess
-            Random.InitState ( -5);
             var generator = new EllerGenerator();
             _Maze = generator.Generate(_MazeCellsX, _MazeCellsY);
             _GraphMaze = new MazeGraph(_Maze, true);
@@ -49,8 +48,8 @@ namespace Nox7atra.Mazes
                 _WallThikness,
                 _Material);
             //PostProcess
-            //var lightsGO = _LightPlacer.SetUpLights(_Maze, _Height);
-            //lightsGO.transform.SetParent(mazeGO.transform);
+            var lightsGO = _LightPlacer.SetUpLights(_Maze, _Height);
+            lightsGO.transform.SetParent(mazeGO.transform);
         }
         public GameObject GenerateW4MazeMesh(
             W4Maze maze,
